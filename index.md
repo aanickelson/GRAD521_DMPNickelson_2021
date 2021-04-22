@@ -17,17 +17,40 @@ All of the data about the environment is stored within the graph structure and i
 
 Data are collected through a simulation environment called [Gazebo](http://gazebosim.org/tutorials?tut=ros_overview) utilizing the [Robot Operating System (ROS)](https://www.ros.org/); both are open source platforms. We will leverage the built-in navigation systems in ROS to allow the robot to navigate autonomously around the map environment. In order to simulate humans in the environment, a background script will randomly determine whether or not humans are ‘present’ on each edge; if they are present, the robot’s top speed will be throttled by a predetermined proportion. Another python script will be running to keep track of how long the robot takes to traverse each edge. These timings will be saved in the graph structure, as defined above. The graph structure will be saved as a [Pickle binary file](https://docs.python.org/3/library/pickle.html).
 
-Data Size:
+**Data Size:**
 
 The graph containing the recorded data will be approximately 2 - 10 MB. We will likely record multiple data sets with different human presence conditions. In total, the data will not exceed 100MB.
 
 
 # Roles and Responsibilities
 
+There are three responsible parties who take part in this research project: my advisor (PI), grad student (me), and one undergraduate student. For the data set listed in section one of this DMP, I am the main responsible party. The outline below details what my responsibilities are for each role described in class:
+
+
+* **Archiving and preservation:** Archiving and preservation is done through Github in a team repository. The team repository is owned by the PI.
+* **Protection of sensitive and protected data:** This is not applicable to this project. Our data are not sensitive and are readily available to the public.
+* **Instrumentation maintenance:** this is not relevant to this project. All work is done in simulation on a lab computer. 
+* **Data manager:** I am responsible for managing all data related to this research project. 
+* **Data collection/data generation:** I am responsible for generating and collecting all data. 
+* **Data organization, metadata generation, Quality control:** Again, I am entirely responsible for how the data are generated and organized, which includes metadata and quality control. My PI occasionally weighs in in high-level conversations, but the details are entirely up to me. 
+* **Data analysis:** I take on the task of analyzing data. My PI occasionally weighs in on what different factors could suggest, but the hands-on data analysis is my responsibility. 
+* **DMP implementation:** This has so far not been a factor in this research project. To my knowledge, there is no standing DMP that impacts my work. Going forward, my PI would be responsible for ensuring we meet any standards required by a DMP.
+* **Access control:** My PI is responsible for the team github repository, which is how access control is managed.
+* **Software creation and maintenance:** This is entirely on my shoulders. On rare occasions, I delegate some software creation responsibilities to the undergrad on my team. Maintenance is currently up to me. 
+* **Contingency plans:** There is no contingency plan in place for if / when I leave this project. Based on previous research projects in our lab, the project will either be handed off to another graduate student or will terminate. The hand-off would be left up to me and the student.
+
+
 # Data standards and metadata
 
 # Storage and security
 
+Our data for this project are not confidential and do not require protection. They are open source and available to the public on github through our lab's github group page ([Oregon State University Personal Robotics Group](https://github.com/osuprg)). The repository for this project can be found here: https://github.com/osuprg/hospital-world
+
 # Access and data sharing
 
+As mentioned briefly in question 1, the data are stored in a team repository on Github. The team repository is managed by my advisor; the project repository is managed by me.
+
+
 # Archiving and preservation
+
+The main repository is on github. This repository is owned by the PI on the project, so the files will still be available to the lab when I leave. There is a copy of the repository local on my research machine, which is owned by the lab. Any changes to the local repository are manually pushed to github utilizing the UI interface in Pycharm. This is done every 1-3 hours and at the end of the day on days that I am working on code or the data. 
