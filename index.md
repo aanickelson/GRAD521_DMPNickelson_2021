@@ -2,7 +2,7 @@
 
 The data set I will use is in a graph structure. Graphs consist of individual nodes that are connected by edges. An example graph is shown in the image below; circles are nodes and lines are edges. Each  node is grounded to a physical location in the map (maps in the simulation environment are usually on the scale of a building). Edges represent the connectivity between nodes.
 
-<img src="https://github.com/aanickelson/GRAD521_DMPNickelson_2021/blob/main/graph_structure.png" width="48">
+<img src="https://github.com/aanickelson/GRAD521_DMPNickelson_2021/blob/main/graph_structure.png" width="400">
 
 All of the data about the environment is stored within the graph structure and is all in simulation:
 Node information
