@@ -54,3 +54,22 @@ As mentioned briefly in question 1, the data are stored in a team repository on 
 # Archiving and preservation
 
 The main repository is on github. This repository is owned by the PI on the project, so the files will still be available to the lab when I leave. There is a copy of the repository local on my research machine, which is owned by the lab. Any changes to the local repository are manually pushed to github utilizing the UI interface in Pycharm. This is done every 1-3 hours and at the end of the day on days that I am working on code or the data. 
+
+# Data Documentation and Metadata
+
+Though there are no formalized standards that apply to this project, ROS users have a widely agreed upon informal file structure. The file structure will follow this informal standard file structure for ROS workspaces. Version control is handled both through Git versioning and by appending a date to relevant data file names. All files with recorded data will be appended with the date in YYYY-MM-DD format. 
+
+Directories will include:
+* **Launch** - [ROS launch files](http://wiki.ros.org/roslaunch) (these spin up multiple scripts alongside the simulated environment) 
+* **Scripts** - custom ROS files / scripts 
+* **Worlds** - custom simulation environments
+This project will include the following additional sub-directories:
+* **Pickles** - Data recorded from simulation tests, stored in the pickle (.pkl) format
+
+Metadata are recorded in the following ways: 
+* **Text file** - metadata about the simulation environment is stored in a plain text file along with the data, with appropriate headers and comments detailing each section.  
+* **Python scripts** - For each data type, there is a matching python script that can process the data. The python script has extensive comments in the '__main__' section to explain the metadata (including units, plaintext explanation of the data type, etc). _Using the main section to provide detailed instructions on how to utilize the script and its associated files is considered best practice for Python._
+
+The following is a non-exhaustive list of metadata recorded for this project:
+* **Naming scheme** - the naming scheme is outlined in the python script that processes the text file associated with the simulation environment. In this specific naming scheme, each node is listed as either a room ('r'), hallway ('h'), or exclusion zone ('ex'); rooms all have associated doorways ('d'). Exclusion zones are portions of the simulation environment that are inaccessable. Each node in a subcategory is then assigned a two digit number starting at 00. For example, the second door in the fourth room would be named 'r03_d01'; the first hallway is 'h00'.
+* **Recorded data** - The main script for processing data shows an example of how to read and use each type of data. It also includes comments detailing the data types and formats. For example, there are two arrays "trav_data_hum" and "trav_data_no" that record the traversal times when humans are present (hum) or absent (no), respectively. The metadata in the python file details which is associated with human presence, as well as information about the data type (numpy array). Each of these arrays also has an associated mean 'mean_hum' and 'mean_no' and standard deviation 'std_hum' and 'std_no'. All variables have a similar naming scheme to make it easily understandable. Naming schemes are included in the comments of the python file. 
