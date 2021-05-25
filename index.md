@@ -1,5 +1,7 @@
 # Data Description:
 
+**Data Types**
+
 The data set I will use is in a graph structure. Graphs consist of individual nodes that are connected by edges. An example graph is shown in the image below; circles are nodes and lines are edges. Each  node is grounded to a physical location in the map (maps in the simulation environment are usually on the scale of a building). Edges represent the connectivity between nodes.
 
 <img src="https://raw.githubusercontent.com/aanickelson/GRAD521_DMPNickelson_2021/main/graph_structure.png" width="400">
@@ -15,6 +17,8 @@ All of the data about the environment is stored within the graph structure and i
     * Percent of time humans are present
     * Number of times the robot had a navigation failure (got lost) on that edge
 
+**Data collection**
+
 Data are collected through a simulation environment called [Gazebo](http://gazebosim.org/tutorials?tut=ros_overview) utilizing the [Robot Operating System (ROS)](https://www.ros.org/); both are open source platforms. We will leverage the built-in navigation systems in ROS to allow the robot to navigate autonomously around the map environment. In order to simulate humans in the environment, a background script will randomly determine whether or not humans are ‘present’ on each edge; if they are present, the robot’s top speed will be throttled by a predetermined proportion. Another python script will be running to keep track of how long the robot takes to traverse each edge. These timings will be saved in the graph structure, as defined above. The graph structure will be saved as a [Pickle binary file](https://docs.python.org/3/library/pickle.html).
 
 **Data Size:**
@@ -27,6 +31,8 @@ The graph containing the recorded data will be approximately 2 - 10 MB. We will 
 There are three responsible parties who take part in this research project: my advisor (PI), grad student (me), and one undergraduate student. For the data set listed in section one of this DMP, I am the main responsible party. The outline below details what my responsibilities are for each role described in class:
 
 
+**Roles**
+
 * **Archiving and preservation:** Archiving and preservation is done through Github in a team repository. The team repository is owned by the PI.
 * **Protection of sensitive and protected data:** This is not applicable to this project. Our data are not sensitive and are readily available to the public.
 * **Instrumentation maintenance:** this is not relevant to this project. All work is done in simulation on a lab computer. 
@@ -37,26 +43,39 @@ There are three responsible parties who take part in this research project: my a
 * **DMP implementation:** This has so far not been a factor in this research project. To my knowledge, there is no standing DMP that impacts my work. Going forward, my PI would be responsible for ensuring we meet any standards required by a DMP.
 * **Access control:** My PI is responsible for the team github repository, which is how access control is managed.
 * **Software creation and maintenance:** This is entirely on my shoulders. On rare occasions, I delegate some software creation responsibilities to the undergrad on my team. Maintenance is currently up to me. 
-* **Contingency plans:** There is no contingency plan in place for if / when I leave this project. Based on previous research projects in our lab, the project will either be handed off to another graduate student or will terminate. The hand-off would be left up to me and the student.
+
+**Contingency plans:** 
+
+There is no contingency plan in place for if / when I leave this project. Based on previous research projects in our lab, the project will either be handed off to another graduate student or will terminate. The hand-off would be left up to me and the student.
 
 
-# Data standards and metadata
+# Data Standards and Metadata
 
-# Storage and security
+**Standards**
+
+There are no formal standards that apply to this project. However, there are widely agreed upon best practices or standards within the ROS community for file structure and naming. This will be discussed further in the Storage and Security portion below.
+
+**Data Capture:**
+
+* **Text file** - metadata about the simulation environment is stored in a plain text file along with the data, with appropriate headers and comments detailing each section.  
+* **Python scripts** - For each data type, there is a matching python script that can process the data. The python script has extensive comments in the '__main__' section to explain the metadata (including units, plaintext explanation of the data type, etc). _Using the main section to provide detailed instructions on how to utilize the script and its associated files is considered best practice for Python._
+* **README** - the README file includes information about how to launch the scripts, which python files perform which actions, and what data is collected. 
+
+The following are a few examples of metadata recorded for this project:
+* **Naming scheme** - the naming scheme is outlined in the python script that processes the text file associated with the simulation environment. In this specific naming scheme, each node is listed as either a room ('r'), hallway ('h'), or exclusion zone ('ex'); rooms all have associated doorways ('d'). Exclusion zones are portions of the simulation environment that are inaccessable. Each node in a subcategory is then assigned a two digit number starting at 00. For example, the second door in the fourth room would be named 'r03_d01'; the first hallway is 'h00'.
+* **Recorded data** - The main script for processing data shows an example of how to read and use each type of data. It also includes comments detailing the data types and formats. For example, there are two arrays "trav_data_hum" and "trav_data_no" that record the traversal times when humans are present (hum) or absent (no), respectively. The metadata in the python file details which is associated with human presence, as well as information about the data type (numpy array). Each of these arrays also has an associated mean 'mean_hum' and 'mean_no' and standard deviation 'std_hum' and 'std_no'. All variables have a similar naming scheme to make it easily understandable. Naming schemes are included in the comments of the python file. 
+
+# Storage and Security
+
+**Access**
 
 Our data for this project are not confidential and do not require protection. They are open source and available to the public on github through our lab's github group page ([Oregon State University Personal Robotics Group](https://github.com/osuprg)). The repository for this project can be found here: https://github.com/osuprg/hospital-world
 
-# Access and data sharing
+**Storage and retention**
 
-As mentioned briefly in question 1, the data are stored in a team repository on Github. The team repository is managed by my advisor; the project repository is managed by me.
+This project is publicly available on Github and will remain there in perpetuity. The main repository is on github. This repository is owned by the PI on the project, so the files will still be available to the lab when I leave. There is a copy of the repository local on my research machine, which is owned by the lab. Any changes to the local repository are manually pushed to github utilizing the UI interface in Pycharm. This is done every 1-3 hours and at the end of the day on days that I am working on code or the data. 
 
-
-# Archiving and preservation
-
-The main repository is on github. This repository is owned by the PI on the project, so the files will still be available to the lab when I leave. There is a copy of the repository local on my research machine, which is owned by the lab. Any changes to the local repository are manually pushed to github utilizing the UI interface in Pycharm. This is done every 1-3 hours and at the end of the day on days that I am working on code or the data. 
-
-# Data Documentation and Metadata
-
+**Organization**
 Though there are no formalized standards that apply to this project, ROS users have a widely agreed upon informal file structure. The file structure will follow this informal standard file structure for ROS workspaces. Version control is handled both through Git versioning and by appending a date to relevant data file names. All files with recorded data will be appended with the date in YYYY-MM-DD format. 
 
 Directories will include:
@@ -66,11 +85,25 @@ Directories will include:
 This project will include the following additional sub-directories:
 * **Pickles** - Data recorded from simulation tests, stored in the pickle (.pkl) format
 
-Metadata are recorded in the following ways: 
-* **Text file** - metadata about the simulation environment is stored in a plain text file along with the data, with appropriate headers and comments detailing each section.  
-* **Python scripts** - For each data type, there is a matching python script that can process the data. The python script has extensive comments in the '__main__' section to explain the metadata (including units, plaintext explanation of the data type, etc). _Using the main section to provide detailed instructions on how to utilize the script and its associated files is considered best practice for Python._
-* **README** - the README file includes information about how to launch the scripts, which python files perform which actions, and what data is collected. 
+**Version Control**
 
-The following are a few examples of metadata recorded for this project:
-* **Naming scheme** - the naming scheme is outlined in the python script that processes the text file associated with the simulation environment. In this specific naming scheme, each node is listed as either a room ('r'), hallway ('h'), or exclusion zone ('ex'); rooms all have associated doorways ('d'). Exclusion zones are portions of the simulation environment that are inaccessable. Each node in a subcategory is then assigned a two digit number starting at 00. For example, the second door in the fourth room would be named 'r03_d01'; the first hallway is 'h00'.
-* **Recorded data** - The main script for processing data shows an example of how to read and use each type of data. It also includes comments detailing the data types and formats. For example, there are two arrays "trav_data_hum" and "trav_data_no" that record the traversal times when humans are present (hum) or absent (no), respectively. The metadata in the python file details which is associated with human presence, as well as information about the data type (numpy array). Each of these arrays also has an associated mean 'mean_hum' and 'mean_no' and standard deviation 'std_hum' and 'std_no'. All variables have a similar naming scheme to make it easily understandable. Naming schemes are included in the comments of the python file. 
+Version control is primarily handled through git's built in versioning system. We additionally include the date and time stamp in the file name for all generated data in order to differentiate the data sets.
+
+# Access and Data Sharing
+
+1. Are there factors that limit the availability to share data? If so, which are these? Describe who you will make the restricted data available to, and under which conditions. 
+
+2. If you are going to make data publicly available describe
+
+    when you will make it publicly available.
+    how and where you will make data publicly available
+    data formats that will be used for making data available.
+    what will be the policies governing the reuse, redistribution and creation of derivatives of the data (licenses)?
+
+3. Regardless of whether the data will be made publicly available or not, describe how the research group will ensure that the data will be archived and preserved. In some cases the answers may overlap with question 2 (for example, if the sharing strategy you chose is also a preservation strategy). Describe the following:
+
+    Identify a timeframe for how long the data will be archived and preserved.
+    Explain how access to the archived data will be maintained.
+    Describe the types and formats that will be preserved, and the types and formats that the investigators will retain in their possession.
+
+Make sure that when you write the answers you address all the data types that you will be generating (the ones you described in the data description section).
