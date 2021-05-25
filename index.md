@@ -76,6 +76,7 @@ Our data for this project are not confidential and do not require protection. Th
 This project is publicly available on Github and will remain there in perpetuity. The main repository is on github. This repository is owned by the PI on the project, so the files will still be available to the lab when I leave. There is a copy of the repository local on my research machine, which is owned by the lab. Any changes to the local repository are manually pushed to github utilizing the UI interface in Pycharm. This is done every 1-3 hours and at the end of the day on days that I am working on code or the data. 
 
 **Organization**
+
 Though there are no formalized standards that apply to this project, ROS users have a widely agreed upon informal file structure. The file structure will follow this informal standard file structure for ROS workspaces. Version control is handled both through Git versioning and by appending a date to relevant data file names. All files with recorded data will be appended with the date in YYYY-MM-DD format. 
 
 Directories will include:
@@ -91,19 +92,11 @@ Version control is primarily handled through git's built in versioning system. W
 
 # Access and Data Sharing
 
-1. Are there factors that limit the availability to share data? If so, which are these? Describe who you will make the restricted data available to, and under which conditions. 
+**Access**
 
-2. If you are going to make data publicly available describe
+As discussed in the previous section, there are no limits on sharing this data. The data are currently publicly available on Github. A link to the Github will be included in all documentation and papers going forward. There are no privacy or confidentiality issues, as all data are generated in simulation by the robot. All data are in python files, plain text, or python pickle files, all of which are open source formats. We will utilize the MIT license and allow reuse as long as there is direct attribution. The README file for the repository will include this information.
 
-    when you will make it publicly available.
-    how and where you will make data publicly available
-    data formats that will be used for making data available.
-    what will be the policies governing the reuse, redistribution and creation of derivatives of the data (licenses)?
+**Archiving and Preservation**
 
-3. Regardless of whether the data will be made publicly available or not, describe how the research group will ensure that the data will be archived and preserved. In some cases the answers may overlap with question 2 (for example, if the sharing strategy you chose is also a preservation strategy). Describe the following:
+Data will be archived and preserved in our group Github account, which is also how it is made available. That Github account will remain active for the foreseeable future. Archiving and preservation are identical to storage, as it utilizes the same formats and system. 
 
-    Identify a timeframe for how long the data will be archived and preserved.
-    Explain how access to the archived data will be maintained.
-    Describe the types and formats that will be preserved, and the types and formats that the investigators will retain in their possession.
-
-Make sure that when you write the answers you address all the data types that you will be generating (the ones you described in the data description section).
