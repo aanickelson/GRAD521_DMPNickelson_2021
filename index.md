@@ -46,7 +46,7 @@ There are three responsible parties who take part in this research project: my a
 
 **Contingency plans:** 
 
-There is no contingency plan in place for if / when I leave this project. Based on previous research projects in our lab, the project will either be handed off to another graduate student or will terminate. The hand-off would be left up to me and the student.
+There are currently no students in my lab who would take on this project after me. If / when I leave this project, the responsibilities will be handed over to my PI. My PI owns the group Github where this project is stored, so he already has access. I will provide documentation in the README to describe each file, the purpose, the metadata, and the procedures. If I know ahead of time that I am leaving (e.g. before graduation), I will initiate a formal hand-off to ensure he understands the data structure and procedures. 
 
 
 # Data Standards and Metadata
